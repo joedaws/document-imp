@@ -2,14 +2,14 @@ module Main (main) where
 
 import System.Environment
 
-import DocumentImp.Command (help, helpNoMatchCommand, note)
+import DocumentImp.Action (help, helpNoMatchCommand, note)
 
-data Command = Help | HelpNoMatch String | Note
+data Action = Help | HelpNoMatch String | Note
 
 {- | The first word is a command and the rest is the argument
   of the command.
 -}
-parseArgs :: [String] -> (Command, [String])
+parseArgs :: [String] -> (Action, [String])
 parseArgs [] = (Help, [])
 parseArgs (x : xs) = case x of
     "help" -> (Help, xs)

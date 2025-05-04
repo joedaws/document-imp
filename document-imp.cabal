@@ -25,7 +25,7 @@ source-repository head
 
 library
   exposed-modules:
-      DocumentImp.Command
+      DocumentImp.Action
       DocumentImp.Document
       DocumentImp.Template.Note
   other-modules:

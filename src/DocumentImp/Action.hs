@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 -- | A module with the core commands
-module DocumentImp.Command (
+module DocumentImp.Action (
     help,
     helpNoMatchCommand,
     note,
