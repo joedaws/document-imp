@@ -2,7 +2,7 @@ module Main (main) where
 
 import System.Environment
 
-import DocumentImp (help, helpNoMatchCommand)
+import DocumentImp.Command (help, helpNoMatchCommand)
 
 data Command = Help | HelpNoMatch String
 
