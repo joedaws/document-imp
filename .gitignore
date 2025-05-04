@@ -28,3 +28,8 @@ cabal.project.local~
 
 # GHCup binaries
 ghcup-bin/
+
+# to avoid accidentally commiting generated files
+*.md
+!README.md
+!CHANGELOG.md

@@ -26,6 +26,7 @@ source-repository head
 library
   exposed-modules:
       DocumentImp.Command
+      DocumentImp.Document
       DocumentImp.Template.Note
   other-modules:
       Paths_document_imp

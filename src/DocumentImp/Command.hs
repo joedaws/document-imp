@@ -4,6 +4,7 @@
 module DocumentImp.Command (
     help,
     helpNoMatchCommand,
+    note,
 ) where
 
 import System.Console.ANSI (
@@ -13,6 +14,9 @@ import System.Console.ANSI (
     SGR (..),
     setSGR,
  )
+
+import DocumentImp.Document (Title)
+import DocumentImp.Template.Note (noteFile)
 
 coloredPutStr :: Color -> String -> IO ()
 coloredPutStr color msg = do
@@ -37,3 +41,6 @@ helpNoMatchCommand cmd = do
     coloredPutStr Red cmd
     putStrLn " is not a known command."
     help
+
+note :: Title -> IO ()
+note = noteFile

@@ -7,5 +7,10 @@ module DocumentImp.Template.Note (
     noteFile,
 ) where
 
-noteFile :: String
-noteFile = "Hello, world"
+import DocumentImp.Document (Document, Title, writeDocument)
+
+notePreamble :: Document
+notePreamble = "Hello, world\n"
+
+noteFile :: Title -> IO ()
+noteFile t = writeDocument t notePreamble
