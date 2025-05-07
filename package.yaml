@@ -22,7 +22,10 @@ description:         Please see the README on GitHub at <https://github.com/joed
 dependencies:
 - base >= 4.7 && < 5
 - ansi-terminal
+- aeson
+- bytestring
 - time
+- yaml
 - text
 
 ghc-options:

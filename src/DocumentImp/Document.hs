@@ -2,6 +2,7 @@
   File: DocumentImp/Document.hs
   Date: 2025-05-03
 -}
+{-# LANGUAGE OverloadedStrings #-}
 
 module DocumentImp.Document (
     Document,
@@ -9,9 +10,10 @@ module DocumentImp.Document (
     writeDocument,
 ) where
 
+import qualified Data.ByteString as BS
 import Data.Char (isSpace)
 
-type Document = String
+type Document = BS.ByteString
 type Title = String
 
 replaceWhitespace :: String -> String
@@ -22,4 +24,4 @@ titleToFilePath s = replaceWhitespace s ++ ".md"
 
 writeDocument :: Title -> Document -> IO ()
 writeDocument title d = do
-    writeFile (titleToFilePath title) d
+    BS.writeFile (titleToFilePath title) d

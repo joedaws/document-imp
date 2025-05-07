@@ -33,4 +33,12 @@ stack install
 dimp note CLIs are fun
 ```
 which will create the markdown file `CLIs-are-fun.md` in the current
-directory.
+directory. This fiel will be populated with a Jekyll sytle yaml
+header.
+
+``` markdown
+---
+date: 2025-05-07T03:58:57.404885047Z
+title: CLIs are fun
+---
+```
