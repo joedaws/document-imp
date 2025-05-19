@@ -2,9 +2,9 @@ module Main (main) where
 
 import System.Environment
 
-import DocumentImp.Action (help, helpNoMatchCommand, note)
+import DocumentImp.Action (help, helpNoMatchCommand, newNote)
 
-data Action = Help | HelpNoMatch String | Note
+data Action = Help | HelpNoMatch String | New
 
 {- | The first word is a command and the rest is the argument
   of the command.
@@ -13,7 +13,7 @@ parseArgs :: [String] -> (Action, [String])
 parseArgs [] = (Help, [])
 parseArgs (x : xs) = case x of
     "help" -> (Help, xs)
-    "note" -> (Note, xs)
+    "new" -> (New, xs)
     _ -> (HelpNoMatch x, xs)
 
 main :: IO ()
@@ -22,5 +22,5 @@ main = do
     let (cmd, rest) = parseArgs args
     case cmd of
         Help -> help
-        Note -> note $ unwords rest
+        New -> newNote $ unwords rest
         HelpNoMatch unknownCmd -> helpNoMatchCommand unknownCmd

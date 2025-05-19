@@ -4,7 +4,7 @@
 module DocumentImp.Action (
     help,
     helpNoMatchCommand,
-    note,
+    newNote,
 ) where
 
 import System.Console.ANSI (
@@ -29,7 +29,7 @@ help = do
     putStrLn "Usage: dimp <command> <command-arguments>"
     putStrLn "The following commands are available:"
 
-    coloredPutStr Green "  note\n"
+    coloredPutStr Green "  new\n"
     putStrLn "      Create a new markdown document for a note."
 
     coloredPutStr Green "  help\n"
@@ -42,5 +42,5 @@ helpNoMatchCommand cmd = do
     putStrLn " is not a known command."
     help
 
-note :: Title -> IO ()
-note = noteFile
+newNote :: Title -> IO ()
+newNote = noteFile
