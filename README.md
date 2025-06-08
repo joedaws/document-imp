@@ -1,4 +1,4 @@
-# Notes Manager
+# Note Manager
 
 A CLI tool for creating document to facilitate a note taking workflow. 
 
