@@ -2,7 +2,7 @@ module Main (main) where
 
 import System.Environment
 
-import DocumentImp.Action (help, helpNoMatchCommand, newNote)
+import NoteManager.Action (help, helpNoMatchCommand, newNote)
 
 data Action = Help | HelpNoMatch String | New
 

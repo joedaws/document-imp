@@ -1,6 +1,6 @@
-name:                document-imp
+name:                note-manager
 version:             0.1.0.0
-github:              "joedaws/document-imp"
+github:              "joedaws/note-manager"
 license:             BSD3 
 author:              "Joseph D. Daws Jr."
 maintainer:          "jozzef@hey.com"
@@ -17,7 +17,7 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/joedaws/document-imp#readme>
+description:         Please see the README on GitHub at <https://github.com/joedaws/note-manager#readme>
 
 dependencies:
 - base >= 4.7 && < 5
@@ -43,7 +43,7 @@ library:
   source-dirs: src
 
 executables:
-  dimp:
+  noteman:
     main:                Main.hs
     source-dirs:         cli
     ghc-options:
@@ -51,10 +51,10 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - document-imp
+    - note-manager
 
 tests:
-  document-imp-test:
+  note-manager-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options:
@@ -62,5 +62,5 @@ tests:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - document-imp
+    - note-manager
     - hspec
