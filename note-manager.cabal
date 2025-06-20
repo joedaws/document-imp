@@ -39,6 +39,7 @@ library
     , ansi-terminal
     , base >=4.7 && <5
     , bytestring
+    , process
     , text
     , time
     , yaml
@@ -57,6 +58,7 @@ executable noteman
     , base >=4.7 && <5
     , bytestring
     , note-manager
+    , process
     , text
     , time
     , yaml
@@ -77,6 +79,7 @@ test-suite note-manager-test
     , bytestring
     , hspec
     , note-manager
+    , process
     , text
     , time
     , yaml

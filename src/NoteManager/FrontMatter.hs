@@ -1,9 +1,9 @@
 {-# LANGUAGE DeriveGeneric #-}
 
-module NoteManager.FrontMatter
-  ( Preamble (..),
+module NoteManager.FrontMatter (
+    Preamble (..),
     mkPreamble,
-  )
+)
 where
 
 import Data.Aeson (FromJSON (..), ToJSON (..), defaultOptions, genericToEncoding)
@@ -12,17 +12,17 @@ import GHC.Generics
 import NoteManager.Document (Title)
 
 data Preamble = Preamble
-  { title :: Title,
-    date :: UTCTime
-  }
-  deriving (Generic, Show)
+    { title :: Title
+    , date :: UTCTime
+    }
+    deriving (Generic, Show)
 
 instance ToJSON Preamble where
-  -- No need to provide a toJSON implementation.
+    -- No need to provide a toJSON implementation.
 
-  -- For efficiency, we write a simple toEncoding implementation, as
-  -- the default version uses toJSON.
-  toEncoding = genericToEncoding defaultOptions
+    -- For efficiency, we write a simple toEncoding implementation, as
+    -- the default version uses toJSON.
+    toEncoding = genericToEncoding defaultOptions
 
 instance FromJSON Preamble
 
@@ -30,5 +30,5 @@ instance FromJSON Preamble
 
 mkPreamble :: Title -> IO Preamble
 mkPreamble t = do
-  now <- getCurrentTime
-  return $ Preamble {title = t, date = now}
+    now <- getCurrentTime
+    return $ Preamble{title = t, date = now}

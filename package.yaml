@@ -24,6 +24,7 @@ dependencies:
 - ansi-terminal
 - aeson
 - bytestring
+- process
 - time
 - yaml
 - text
