@@ -16,7 +16,7 @@ import NoteManager.FrontMatter (Preamble (..), mkPreamble)
 
 noteFile :: Title -> IO String
 noteFile t = do
-    preamble <- mkPreamble t
+    preamble <- mkPreamble
     let preambleStr = encode preamble
     let yamlHeader = "---\n" ++ BS.unpack preambleStr ++ "---\n"
     writeDocument t (BS.pack yamlHeader)

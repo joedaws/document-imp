@@ -1,5 +1,5 @@
 name:                note-manager
-version:             0.1.1.0
+version:             0.1.2.0
 github:              "joedaws/note-manager"
 license:             BSD3 
 author:              "Joseph D. Daws Jr."
@@ -25,9 +25,10 @@ dependencies:
 - aeson
 - bytestring
 - process
-- time
-- yaml
 - text
+- time
+- uuid
+- yaml
 
 ghc-options:
 - -Wall

@@ -8,11 +8,12 @@ where
 
 import Data.Aeson (FromJSON (..), ToJSON (..), defaultOptions, genericToEncoding)
 import Data.Time (UTCTime, getCurrentTime)
+import Data.UUID (UUID)
+import Data.UUID.V4 (nextRandom)
 import GHC.Generics
-import NoteManager.Document (Title)
 
 data Preamble = Preamble
-    { title :: Title
+    { noteManId :: UUID
     , date :: UTCTime
     }
     deriving (Generic, Show)
@@ -28,7 +29,8 @@ instance FromJSON Preamble
 
 -- No need to provide a parseJSON implementation.
 
-mkPreamble :: Title -> IO Preamble
-mkPreamble t = do
+mkPreamble :: IO Preamble
+mkPreamble = do
     now <- getCurrentTime
-    return $ Preamble{title = t, date = now}
+    uuid <- nextRandom
+    return $ Preamble{noteManId = uuid, date = now}
