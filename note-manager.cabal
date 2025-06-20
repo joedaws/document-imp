@@ -27,6 +27,7 @@ library
   exposed-modules:
       NoteManager.Action
       NoteManager.Document
+      NoteManager.Environment
       NoteManager.FrontMatter
       NoteManager.Template.Note
   other-modules:
