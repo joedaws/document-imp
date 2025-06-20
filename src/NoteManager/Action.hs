@@ -9,6 +9,7 @@ module NoteManager.Action (
 where
 
 import NoteManager.Document (Title)
+import NoteManager.Environment (editorProgram)
 import NoteManager.Template.Note (noteFile)
 import System.Console.ANSI (
     Color (..),
@@ -17,6 +18,7 @@ import System.Console.ANSI (
     SGR (..),
     setSGR,
  )
+import System.Exit (die)
 import System.Process (callCommand)
 
 coloredPutStr :: Color -> String -> IO ()
@@ -45,5 +47,11 @@ helpNoMatchCommand cmd = do
 
 newNote :: Title -> IO ()
 newNote t = do
-    fileName <- noteFile t
-    callCommand $ "hx" ++ " " ++ fileName
+    editorP <- editorProgram
+    case editorP of
+        Nothing -> stopEarly
+        Just e -> do
+            fileName <- noteFile t
+            callCommand $ e ++ " " ++ fileName
+  where
+    stopEarly = die "Cannot open file with an edtior. Set VISUAL or Editor."
