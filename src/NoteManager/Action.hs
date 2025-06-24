@@ -46,6 +46,7 @@ helpNoMatchCommand cmd = do
     help
 
 newNote :: Title -> IO ()
+newNote "" = die "Title cannot be empty."
 newNote t = do
     editorP <- editorProgram
     case editorP of
